@@ -1,6 +1,7 @@
 //
 // Created by DKM on 2025/10/2.
 //
+#include "cmsis_os.h"
 #include "main.h"
 #include "FreeRTOS.h"
 #include "task.h"
@@ -14,9 +15,9 @@ void red_led_task(void const * argument)
         for (int i=0;i<100;i++)
         {
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_3, i);
-            HAL_Delay(10);
+            osDelay(10);
         }
-        vTaskDelay(2000);
+        osDelay(2000);
     }
 }
 void blue_led_task(void const * argument)
@@ -27,9 +28,9 @@ void blue_led_task(void const * argument)
         for (int i=0;i<100;i++)
         {
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_2, i);
-            HAL_Delay(10);
+            osDelay(10);
         }
-        vTaskDelay(3000);
+        osDelay(3000);
     }
 }
 void green_led_task(void const * argument)
@@ -40,8 +41,8 @@ void green_led_task(void const * argument)
         for (int i=0;i<100;i++)
         {
             __HAL_TIM_SET_COMPARE(&htim5, TIM_CHANNEL_1, i);
-            HAL_Delay(10);
+            osDelay(10);
         }
-        vTaskDelay(5000);
+        osDelay(5000);
     }
 }
